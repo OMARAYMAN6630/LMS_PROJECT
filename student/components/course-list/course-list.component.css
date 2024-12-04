@@ -1,0 +1,13 @@
+/* src/app/student/components/course-list/course-list.component.css */
+.course-list {
+    padding: 20px;
+  }
+  
+  .course-item {
+    margin-bottom: 10px;
+  }
+  
+  .course-item h3 {
+    color: #007bff;
+  }
+  

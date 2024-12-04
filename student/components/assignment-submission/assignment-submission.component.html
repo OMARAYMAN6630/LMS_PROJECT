@@ -1,0 +1,12 @@
+<!-- src/app/student/components/assignment-submission/assignment-submission.component.html -->
+<div class="assignment-submission">
+    <h2>{{ assignment.name }}</h2>
+    <p>{{ assignment.description }}</p>
+  
+    <form (ngSubmit)="onSubmit()">
+      <label for="file">Upload Assignment:</label>
+      <input type="file" id="file" name="file" />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,11 @@
+<!-- src/app/student/components/progress-tracker/progress-tracker.component.html -->
+<div class="progress-tracker">
+    <h2>Progress Tracker</h2>
+  
+    <div *ngFor="let item of progress">
+      <h3>{{ item.course }}</h3>
+      <p>{{ item.completed }}% completed</p>
+      <progress [value]="item.completed" max="100"></progress>
+    </div>
+  </div>
+  

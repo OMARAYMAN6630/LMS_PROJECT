@@ -1,0 +1,9 @@
+/* src/app/student/components/assignment-submission/assignment-submission.component.css */
+.assignment-submission {
+    padding: 20px;
+  }
+  
+  .assignment-submission button {
+    margin-top: 10px;
+  }
+  

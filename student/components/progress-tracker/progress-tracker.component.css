@@ -1,0 +1,10 @@
+/* src/app/student/components/progress-tracker/progress-tracker.component.css */
+.progress-tracker {
+    padding: 20px;
+  }
+  
+  progress {
+    width: 100%;
+    height: 20px;
+  }
+  
