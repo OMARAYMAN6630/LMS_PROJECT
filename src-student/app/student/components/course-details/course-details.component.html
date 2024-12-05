@@ -1,0 +1,12 @@
+<div class="course-details" *ngIf="courseDetails">
+  <h1>{{ courseDetails.title }}</h1>
+  <p class="description">{{ courseDetails.description }}</p>
+  <div class="metadata">
+    <p><strong>Instructor:</strong> {{ courseDetails.instructor }}</p>
+    <p><strong>Duration:</strong> {{ courseDetails.duration }}</p>
+  </div>
+</div>
+
+<div *ngIf="!courseDetails">
+  <p>Course not found.</p>
+</div>

@@ -1,0 +1,53 @@
+<div class="course-management">
+  <h1>Course Management</h1>
+
+  <!-- Course Form to add a new course -->
+  <div class="course-form">
+    <h2>Add New Course</h2>
+    <form (ngSubmit)="addCourse()">
+      <label for="courseName">Course Name</label>
+      <input id="courseName" [(ngModel)]="newCourse.name" name="courseName" required />
+
+      <label for="courseDescription">Description</label>
+      <input id="courseDescription" [(ngModel)]="newCourse.description" name="courseDescription" required />
+
+      <label for="courseDuration">Duration</label>
+      <input id="courseDuration" [(ngModel)]="newCourse.duration" name="courseDuration" required />
+
+      <button type="submit" [disabled]="!newCourse.name || !newCourse.description || !newCourse.duration">
+        Add Course
+      </button>
+    </form>
+  </div>
+
+  <!-- Courses Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Description</th>
+        <th>Duration</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.name }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.duration }}</td>
+        <td>
+          <span [ngClass]="{'active-status': course.status === 'Active', 'inactive-status': course.status === 'Inactive'}">
+            {{ course.status }}
+          </span>
+        </td>
+        <td>
+          <!-- Activate button to toggle course status -->
+          <button (click)="toggleCourseStatus(course)">
+            {{ course.status === 'Active' ? 'Deactivate' : 'Activate' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,105 @@
+/* Overall container for user management */
+.user-management {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-management h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f4f4f4;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+td {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Buttons in the actions column */
+button {
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Approve button */
+button:first-child {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button:first-child:hover {
+  background-color: #45a049;
+}
+
+/* Deactivate button */
+button:nth-child(2) {
+  background-color: #FFA726;
+  color: white;
+}
+
+button:nth-child(2):hover {
+  background-color: #FB8C00;
+}
+
+/* Delete button */
+button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  table, th, td {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .user-management h1 {
+    font-size: 2rem;
+  }
+}

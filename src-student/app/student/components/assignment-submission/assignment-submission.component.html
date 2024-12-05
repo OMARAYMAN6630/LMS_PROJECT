@@ -1,0 +1,8 @@
+<div class="assignment-submission">
+  <h2>Submit Your Assignment</h2>
+  <form>
+    <label for="assignment">Assignment File</label>
+    <input type="file" id="assignment" (change)="onFileSelected($event)" />
+    <button type="submit" (click)="submitAssignment()">Submit</button>
+  </form>
+</div>

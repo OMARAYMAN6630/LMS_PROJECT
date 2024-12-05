@@ -1,0 +1,51 @@
+<div class="enrollment-management">
+  <h1>Enrollment Management</h1>
+
+  <!-- Enrollment Form -->
+  <div class="enrollment-form">
+    <h2>Assign Student to Course</h2>
+    <form (ngSubmit)="assignStudent()">
+      <label for="student">Student</label>
+      <select id="student" [(ngModel)]="selectedStudent" name="student" required>
+        <option *ngFor="let student of students" [value]="student.id">
+          {{ student.name }}
+        </option>
+      </select>
+
+      <label for="course">Course</label>
+      <select id="course" [(ngModel)]="selectedCourse" name="course" required>
+        <option *ngFor="let course of courses" [value]="course.id">
+          {{ course.name }}
+        </option>
+      </select>
+
+      <button type="submit" [disabled]="!selectedStudent || !selectedCourse">Assign</button>
+    </form>
+  </div>
+
+  <!-- Enrollment Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Course Name</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let enrollment of enrollments">
+        <td>{{ enrollment.studentName }}</td>
+        <td>{{ enrollment.courseName }}</td>
+        <td>
+          <span [ngClass]="{'active-status': enrollment.status === 'Active', 'inactive-status': enrollment.status === 'Inactive'}">
+            {{ enrollment.status }}
+          </span>
+        </td>
+        <td>
+          <button (click)="toggleStatus(enrollment)">Toggle Status</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

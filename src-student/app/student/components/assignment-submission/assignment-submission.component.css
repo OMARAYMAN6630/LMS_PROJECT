@@ -1,0 +1,43 @@
+.assignment-submission {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.assignment-submission h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.assignment-submission form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.assignment-submission label {
+  font-size: 14px;
+  color: #555;
+}
+
+.assignment-submission input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.assignment-submission button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.assignment-submission button:hover {
+  background-color: #0056b3;
+}
