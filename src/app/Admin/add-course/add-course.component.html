@@ -1,0 +1,19 @@
+<app-admin-dashboard></app-admin-dashboard>
+<div class="add-course-container">
+  <h2>Add New Course</h2>
+  <div class="add-form">
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Course Title</label>
+        <input type="text" id="title" [(ngModel)]="course.title" name="title" required />
+      </div>
+      <div>
+        <label for="description">Course Description</label>
+        <textarea id="description" [(ngModel)]="course.description" name="description"></textarea>
+      </div>
+      <button type="submit">Add Course</button>
+    </form>
+  </div>
+  
+</div>
+

@@ -7,7 +7,7 @@
 }
 .app-container {
   display: flex;
-  width: 70%;
+  width: 90%;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -16,6 +16,7 @@
   box-shadow: 0 0 10px rgba(148, 148, 148, 0.37);
   color: rgb(208, 208, 208);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ /* height:100vh */
 }
 
 .header {
