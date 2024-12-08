@@ -1,0 +1,43 @@
+<div class="grading-container">
+  <h2>{{ title }}</h2>
+  <p>Grade the student's assignment by filling out the form below:</p>
+
+  <!-- Grading Form -->
+  <form #gradingForm="ngForm" (ngSubmit)="onSubmit(gradingForm)" novalidate>
+    <!-- Select course -->
+    <div class="form-group">
+      <label for="course">Select Course:</label>
+      <select id="course" name="course" ngModel class="form-control" required>
+        <option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</option>
+      </select>
+    </div>
+
+    <!-- Select Assessment -->
+    <div class="form-group">
+      <label for="assessment">Select Assessment:</label>
+      <select id="assessment" name="assessment" ngModel class="form-control" required>
+        <option *ngFor="let assessment of assessments" [value]="assessment.id">{{ assessment.name }}</option>
+      </select>
+    </div>
+
+    <!-- Select Student -->
+    <div class="form-group">
+      <label for="student">Select Student:</label>
+      <select id="student" name="student" ngModel class="form-control" required>
+        <option *ngFor="let student of students" [value]="student.id">{{ student.name }}</option>
+      </select>
+    </div>
+
+    <!-- Grade -->
+    <div class="form-group">
+      <label for="grade">Grade:</label>
+      <input type="number" id="grade" name="grade" ngModel class="form-control" min="0" max="100"
+        placeholder="Enter grade (0-100)" required />
+    </div>
+
+
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn-submit" [disabled]="gradingForm.invalid">Submit Grade</button>
+  </form>
+</div>
