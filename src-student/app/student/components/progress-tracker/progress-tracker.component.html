@@ -1,0 +1,21 @@
+<h2>Progress Tracker</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Progress</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of progress">
+      <td>{{ item.course }}</td>
+      <td>{{ item.completed }}%</td>
+      <td>
+        <button (click)="incrementProgress(item)" [disabled]="item.completed >= 100">
+          Improve Progress
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

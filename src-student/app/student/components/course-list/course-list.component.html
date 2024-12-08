@@ -1,0 +1,8 @@
+<h2>Course List</h2>
+<ul>
+  <li *ngFor="let course of courses">
+    <h3>{{ course.name }}</h3>
+    <p>{{ course.description }}</p>
+    <button (click)="viewCourseDetails(course.id)">View Details</button>
+  </li>
+</ul>

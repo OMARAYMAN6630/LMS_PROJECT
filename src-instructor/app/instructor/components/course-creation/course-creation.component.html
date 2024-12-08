@@ -1,0 +1,88 @@
+<div class="course-creation-container">
+  <h2>{{ title }}</h2>
+  <p>Create a new course by filling out the form below:</p>
+
+  <!-- Course Creation Form -->
+  <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)" [noValidate]="true">
+    <!-- Course Name Selector -->
+    <div class="form-group">
+      <label for="name">Course Name:</label>
+      <select
+        id="name"
+        name="name"
+        ngModel
+        class="form-control"
+        required
+      >
+        <option value="" disabled selected>Select a course</option>
+        <option *ngFor="let course of courseOptions" [value]="course">{{ course }}</option>
+      </select>
+    </div>
+
+    <!-- Dynamic Assessment Criteria -->
+    <div class="form-group">
+      <label for="assessment">Course Assessment Criteria:</label>
+      <input
+        type="text"
+        id="newAssessment"
+        [(ngModel)]="newAssessment"
+        name="newAssessment"
+        class="form-control"
+        placeholder="Enter assessment criteria (e.g., quizzes, projects)"
+        required
+        minlength="3"
+      />
+      <button
+        type="button"
+        class="add-btn"
+        (click)="addAssessment()"
+        [disabled]="!newAssessment || newAssessment.length < 3"
+      >
+        Add Assessment
+      </button>
+    </div>
+
+    <!-- Cards of Assessments -->
+    <div class="assessment-cards">
+      <div *ngFor="let assessment of assessments; let i = index" class="card">
+        <p>{{ assessment }}</p>
+        <button type="button" class="remove-btn" (click)="removeAssessment(i)">Remove</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Material Criteria -->
+    <div class="form-group">
+      <label for="material">Course Material Criteria:</label>
+      <input
+        type="text"
+        id="newMaterial"
+        [(ngModel)]="newMaterial"
+        name="newMaterial"
+        class="form-control"
+        placeholder="Enter course material criteria"
+        required
+        minlength="3"
+      />
+      <button
+        type="button"
+        class="add-btn"
+        (click)="addMaterial()"
+        [disabled]="!newMaterial || newMaterial.length < 3"
+      >
+        Add Material
+      </button>
+    </div>
+
+    <!-- Cards of Materials -->
+    <div class="material-cards">
+      <div *ngFor="let material of materials; let i = index" class="card">
+        <p>{{ material }}</p>
+        <button type="button" class="remove-btn" (click)="removeMaterial(i)">Remove</button>
+      </div>
+    </div>
+    <!-- Submit Button -->
+    <button type="submit" class="btn-create">
+      Create Course
+    </button>
+  </form>
+</div>

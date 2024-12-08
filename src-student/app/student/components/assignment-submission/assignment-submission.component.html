@@ -1,0 +1,32 @@
+<div class="assignment-form">
+  <h2>Submit Assignment</h2>
+
+  <!-- Course Selector -->
+  <label for="course">Choose a Course:</label>
+  <select id="course" [(ngModel)]="assignment.courseId">
+    <option value="" disabled selected>Select a course</option>
+    <option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</option>
+  </select>
+
+  <!-- Assignment Type Selector -->
+  <label for="assignmentType">Choose Assignment Type:</label>
+  <select id="assignmentType" [(ngModel)]="assignment.assignmentTypeId">
+    <option value="" disabled selected>Select assignment type</option>
+    <option *ngFor="let type of assignmentTypes" [value]="type.id">{{ type.name }}</option>
+  </select>
+
+  <!-- Description -->
+  <label for="description">Description:</label>
+  <textarea id="description" [(ngModel)]="assignment.description" placeholder="Enter assignment description"></textarea>
+
+  <!-- Submit and Reset Buttons -->
+  <div class="buttons">
+    <button (click)="submitAssignment()" [disabled]="!assignment.courseId || !assignment.assignmentTypeId || !assignment.description">Submit</button>
+    <button (click)="resetForm()">Reset</button>
+  </div>
+
+  <!-- Success Message -->
+  <div *ngIf="assignment.submitted" class="success-message">
+    <p>Assignment submitted successfully!</p>
+  </div>
+</div>

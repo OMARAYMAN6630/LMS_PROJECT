@@ -1,0 +1,22 @@
+<div *ngIf="course">
+  <h2>{{ course.name }}</h2>
+  <p><strong>Description:</strong> {{ course.description }}</p>
+
+
+  <h3>Assessments</h3>
+  <ul>
+    <li *ngFor="let assessment of course.assessments">{{ assessment }}</li>
+  </ul>
+
+  <h3>Materials</h3>
+  <ul>
+    <li *ngFor="let material of course.materials">
+      <a [href]="material.link" target="_blank">
+        {{ material.name }} ({{ material.type }})
+      </a>
+    </li>
+  </ul>
+</div>
+<div *ngIf="!course">
+  <p>Course not found!</p>
+</div>
