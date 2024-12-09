@@ -63,6 +63,7 @@ export interface User {
   id: string;
   email: string;
   enrolledCourses?: string[]; // Optional, as it may not exist initially
+  assignedCourses?: string[];//for instructor
 }
 
 

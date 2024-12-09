@@ -3,12 +3,17 @@ import {AngularFireAuth}from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { firstValueFrom } from 'rxjs';
+import { Observable } from 'rxjs';
+import { User } from '../Admin/user-management/user-management.component';
+import { map } from 'rxjs';
+import { switchMap,of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
   constructor(private fireauth:AngularFireAuth,private firestore: AngularFirestore,private router:Router) { }
+  private usersCollection = 'users';
   login(email: string, password: string): Promise<void> {
     return this.fireauth.signInWithEmailAndPassword(email, password) // Step 1: Authenticate user
       .then(res => {
@@ -32,9 +37,12 @@ export class AuthService {
             this.router.navigate(['/admin-dashboard']);
           } else if (userData?.role === 'instructor') {
             this.router.navigate(['/instructor-dashboard']);
-          } else {
+          } else if (userData?.role === 'student'){
             console.log('user');
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/student-dashboard']);
+          }
+          else{
+            this.router.navigate(['dashboard']);
           }
         } else {
           alert('No user data found!');
@@ -86,7 +94,35 @@ export class AuthService {
     }
   )
 
-
-
   }
+//   async getLoggedInUserId(): Promise<string | null> {
+//     const user = await this.fireauth.currentUser;
+//     return user ? user.uid : null;
+// }
+async getLoggedInUserId(): Promise<string | null> {
+  const user = await firstValueFrom(this.fireauth.authState);
+  return user?.uid || null;
+}
+getUserDocument(userId: string): Observable<any> {
+  return this.firestore.collection(this.usersCollection).doc(userId).valueChanges();
+}
+getLoggedInUser(): Observable<User | null> {
+  return this.fireauth.authState.pipe(
+    switchMap(user => {
+      if (user && user.uid) {
+        return this.firestore
+          .collection<User>('users')
+          .doc(user.uid)
+          .valueChanges({ idField: 'id' })
+          .pipe(
+            // Map undefined to null
+            map(userDoc => userDoc || null)
+          );
+      } else {
+        return of(null); // Return null if no auth state
+      }
+    })
+  );
+}
+
 }
