@@ -17,6 +17,15 @@ import { EditCourseComponent } from './Admin/edit-course/edit-course.component';
 import { UserManagementComponent } from './Admin/user-management/user-management.component';
 import { AssignmentStudentsComponent } from './Admin/assignment-students/assignment-students.component';
 import { AssignmentStudentDashboardComponent } from './Admin/assignment-student-dashboard/assignment-student-dashboard.component';
+import { CourseCreationComponent } from './instructor/course-creation/course-creation.component';
+import { InstructorDashboardComponent } from './instructor/instructor-dashboard/instructor-dashboard.component';
+import { GradingComponent } from './instructor/grading/grading.component';
+import { StudentMonitoringComponent } from './instructor/student-monitoring/student-monitoring.component';
+import { AssignmentSubmissionComponent } from './student/assignment-submission/assignment-submission.component';
+import { CourseListComponent } from './student/course-list/course-list.component';
+import { CourseDetailsComponent } from './student/course-details/course-details.component';
+import { ProgressTrackerComponent } from './student/progress-tracker/progress-tracker.component';
+import { StudentDashboardComponent } from './student/student-dashboard/student-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +39,15 @@ import { AssignmentStudentDashboardComponent } from './Admin/assignment-student-
      UserManagementComponent,
      AssignmentStudentsComponent,
      AssignmentStudentDashboardComponent,
+     CourseCreationComponent,
+     InstructorDashboardComponent,
+     GradingComponent,
+     StudentMonitoringComponent,
+     AssignmentSubmissionComponent,
+     CourseListComponent,
+     CourseDetailsComponent,
+     ProgressTrackerComponent,
+     StudentDashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -55,4 +55,6 @@ export interface Course {
   title: string;
   description: string;
   enrolledStudents?: string[];
+  instructorId:string;
+  materials?: string[];
 }
